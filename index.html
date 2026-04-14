@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MinimalTimer - 极简翻页计时器</title>
+    <style>
+        :root {
+            --bg-color: #ffffff;
+            --text-color: #000000;
+            --accent-color: #007aff; /* 科技蓝 */
+            --secondary-text: #86868b;
+            --border-color: #e5e5e7;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 20px;
+            line-height: 1.5;
+        }
+
+        .container {
+            max-width: 640px;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* 极简模拟 Fliqlo 视觉 */
+        .tech-preview {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 50px;
+        }
+
+        .flip-card-mock {
+            background: #111111;
+            color: #ffffff;
+            width: 70px;
+            height: 90px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: 700;
+            position: relative;
+            overflow: hidden;
+            letter-spacing: -2px;
+        }
+
+        .flip-card-mock::after {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 1px;
+            background: rgba(255,255,255,0.15);
+            top: 50%;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 8px;
+            letter-spacing: -1.5px;
+            font-weight: 700;
+        }
+
+        p.subtitle {
+            color: var(--secondary-text);
+            font-size: 1.2rem;
+            margin-bottom: 40px;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        .features {
+            text-align: left;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.015);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 50px;
+            border: 1px solid var(--border-color);
+        }
+
+        .features h2 {
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            color: var(--secondary-text);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        .features ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        @media (max-width: 520px) {
+            .features ul { grid-template-columns: 1fr; }
+        }
+
+        .features li {
+            padding: 15px;
+            color: var(--text-color);
+            background: #fff;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            font-size: 1rem;
+            font-weight: 400;
+        }
+
+        .features li strong {
+            color: var(--text-color);
+            font-weight: 600;
+            margin-right: 5px;
+        }
+
+        /* 具有科技感的呼吸灯按钮 */
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0.4); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 122, 255, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 122, 255, 0); }
+        }
+
+        .download-btn {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: #ffffff;
+            padding: 18px 50px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            animation: pulse 2s infinite;
+        }
+
+        .download-btn:hover {
+            background-color: #0066d6;
+            transform: translateY(-2px);
+            animation: none; /* 悬停时停止呼吸效果 */
+        }
+
+        .footer {
+            margin-top: 80px;
+            font-size: 0.85rem;
+            color: var(--secondary-text);
+            border-top: 1px solid var(--border-color);
+            padding-top: 20px;
+            width: 100%;
+        }
+
+        @media (max-width: 480px) {
+            h1 { font-size: 2.2rem; }
+            .flip-card-mock { width: 55px; height: 70px; font-size: 2.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="tech-preview">
+            <div class="flip-card-mock">1</div>
+            <div class="flip-card-mock">0</div>
+        </div>
+
+        <h1>MinimalTimer</h1>
+        <p class="subtitle">极致简约，专注于翻页计时美学。</p>
+
+        <div class="features">
+            <h2>Core Metrics</h2>
+            <ul>
+                <li><strong>Fliqlo 视觉</strong> 沉浸式 3D 物理翻页动效。</li>
+                <li><strong>Immersive</strong> 自动隐藏系统 UI，视觉无干扰。</li>
+                <li><strong>Screen On</strong> 内置物理常亮，适合作为摆件。</li>
+                <li><strong>Haptic</strong> 细腻强震动交互，实体般反馈。</li>
+            </ul>
+        </div>
+
+        <a href="https://github.com/wangwenzhiwwz/MinimalTimer/releases/download/v1.0.0/MinimalTimer.apk" class="download-btn">
+            Download APK v1.0.0
+        </a>
+
+        <div class="footer">
+            驱动：Jetpack Compose · 开源项目<br>
+            Powered by Kotlin & Canvas
+        </div>
+    </div>
+
+</body>
+</html>
